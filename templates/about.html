@@ -1,194 +1,92 @@
 {% extends 'layout.html' %}
+
 {% block title %}
-    Zeex Features - AI-Powered Security Solutions
+    About
 {% endblock %}
 
 {% block style %}
 <style>
-    :root {
-        --primary-color: #6200ea;
-        --secondary-color: #00e5ff;
-        --accent-color: #ff00ff;
-        --bg-color: #050505;
-        --text-color: #ffffff;
-    }
-    
-    * {
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: #e0e0e0;
+        background: #000;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.6;
         overflow-x: hidden;
     }
-    
+
     .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 20px;
     }
-    
-    header {
-        padding: 20px 0;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-        background-color: rgba(5, 5, 5, 0.8);
-        backdrop-filter: blur(10px);
-    }
-    
-    nav ul {
-        display: flex;
-        justify-content: flex-end;
-        list-style-type: none;
-    }
-    
-    nav ul li {
-        margin-left: 30px;
-    }
-    
-    nav ul li a {
-        color: var(--text-color);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        position: relative;
-    }
-    
-    nav ul li a::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: var(--secondary-color);
-        transition: width 0.3s ease;
-    }
-    
-    nav ul li a:hover::after {
-        width: 100%;
-    }
-    
-    .hero {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+    .about {
+        
+        padding: 2rem;
         text-align: center;
         position: relative;
         overflow: hidden;
     }
-    
-    .hero-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-        opacity: 0.1;
-        z-index: -1;
-    }
-    
-    .hero-content {
-        position: relative;
-        z-index: 1;
-    }
-    
-    .hero h1 {
+
+    h1, h2, h3, h4 {
         font-family: 'Orbitron', sans-serif;
-        font-size: 5rem;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        color: #3498db;
+        text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+    }
+
+    .glow-text {
         animation: glow 2s ease-in-out infinite alternate;
     }
-    
+
     @keyframes glow {
         from {
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--secondary-color), 0 0 20px var(--secondary-color);
+            text-shadow: 0 0 5px #3498db, 0 0 10px #3498db, 0 0 15px #3498db;
         }
         to {
-            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color);
+            text-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db;
         }
     }
-    
-    .hero p {
-        font-size: 1.5rem;
-        margin-bottom: 30px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .btn {
-        display: inline-block;
-        padding: 12px 24px;
-        background-color: var(--secondary-color);
-        color: var(--bg-color);
-        text-decoration: none;
-        border-radius: 30px;
-        font-weight: bold;
+
+    .mission {
+        background: rgba(26, 95, 122, 0.1);
+        border-left: 5px solid #3498db;
+        padding: 20px;
+        margin: 30px 0;
+        backdrop-filter: blur(5px);
         transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
     }
-    
-    .btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-        transition: all 0.5s;
+
+    .mission:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
     }
-    
-    .btn:hover::before {
-        left: 100%;
-    }
-    
-    .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0,229,255,0.3);
-    }
-    
-    section {
-        padding: 100px 0;
-    }
-    
-    h2 {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 3rem;
-        margin-bottom: 50px;
-        text-align: center;
-        background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
+
     .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
-    
+
     .feature {
-        background-color: rgba(255,255,255,0.05);
-        padding: 40px;
-        border-radius: 20px;
-        text-align: center;
+        flex-basis: 30%;
+        background: rgba(52, 152, 219, 0.1);
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
     }
-    
+
+    .feature:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 15px 30px rgba(52, 152, 219, 0.3);
+    }
+
     .feature::before {
         content: '';
         position: absolute;
@@ -196,89 +94,97 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle, var(--secondary-color) 10%, transparent 10%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+        transform: rotate(45deg);
+        transition: all 0.5s ease;
     }
-    
+
     .feature:hover::before {
-        opacity: 0.1;
+        top: -75%;
+        left: -75%;
     }
-    
-    .feature:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+
+    @media (max-width: 768px) {
+        .feature {
+            flex-basis: 100%;
+        }
     }
-    
-    .feature h3 {
-        font-family: 'Orbitron', sans-serif;
-        margin-bottom: 15px;
-        font-size: 1.5rem;
+
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
     }
-    
-    .feature-icon {
-        font-size: 3rem;
-        margin-bottom: 20px;
-        color: var(--secondary-color);
-    }
-    
-    /* Add more styles as needed */
 </style>
 {% endblock %}
 
 {% block content %}
+<div id="particles-js"></div>
+<span class="about">
+    <h1 class="glow-text">About Us</h1>
+</span>
+<div class="container">
+    <h2>Revolutionizing Security and Surveillance</h2>
+
     
-{% endblock %}
+    <div class="mission">
+        <h3>Our Mission</h3>
+        <p>To ensure faster responses and proactive prevention, making our world a safer place.</p>
+    </div>
+    
+    <h3>What We Do</h3>
+    <br>
+    <div class="features">
+        <div class="feature">
+            <h4>Real-time Detection</h4>
+            <p>Identify illegal activities and emergencies as they happen.</p>
+        </div>
+        <div class="feature">
+            <h4>Instant Alerts</h4>
+            <p>Notify authorities, emergency services, and family members immediately.</p>
+        </div>
+        <div class="feature">
+            <h4>Proactive Prevention</h4>
+            <p>Enhance safety through early detection and rapid response.</p>
+        </div>
+    </div>
+    
+</div>
 
-{% block script %}
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-    // Three.js background animation
-    let scene, camera, renderer, particles;
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#3498db" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#3498db", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+            modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+        },
+        retina_detect: true
+    });
 
-    function init() {
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        const geometry = new THREE.BufferGeometry();
-        const vertices = [];
-
-        for (let i = 0; i < 10000; i++) {
-            const x = Math.random() * 2000 - 1000;
-            const y = Math.random() * 2000 - 1000;
-            const z = Math.random() * 2000 - 1000;
-            vertices.push(x, y, z);
-        }
-
-        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-
-        const material = new THREE.PointsMaterial({ color: 0x00e5ff, size: 2 });
-        particles = new THREE.Points(geometry, material);
-        scene.add(particles);
-
-        camera.position.z = 1000;
-    }
-
-    function animate() {
-        requestAnimationFrame(animate);
-        particles.rotation.x += 0.001;
-        particles.rotation.y += 0.002;
-        renderer.render(scene, camera);
-    }
-
-    init();
-    animate();
-
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+    document.addEventListener('DOMContentLoaded', function() {
+        const features = document.querySelectorAll('.feature');
+        features.forEach(feature => {
+            feature.addEventListener('mouseover', function() {
+                this.style.boxShadow = '0 0 20px rgba(52, 152, 219, 0.7)';
+            });
+            feature.addEventListener('mouseout', function() {
+                this.style.boxShadow = 'none';
             });
         });
     });
 </script>
 {% endblock %}
+

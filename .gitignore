@@ -12,3 +12,6 @@ uv.lock
 
 #secret files
 .env
+
+#database
+instance

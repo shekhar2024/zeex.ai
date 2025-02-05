@@ -1,0 +1,209 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Features
+{% endblock %}
+
+{% block style %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: #e0e0e0;
+        background: #000;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .zeex {
+        background: linear-gradient(45deg, #1a5f7a, #00070b);
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Orbitron', sans-serif;
+        color: #3498db;
+        text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+    }
+
+    .glitch {
+        font-size: 4rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        position: relative;
+        color: #fff;
+        letter-spacing: 0.1em;
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+            0.025em 0.04em 0 #fffc00;
+        animation: glitch 725ms infinite;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .feature-card {
+        background: rgba(52, 152, 219, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(52, 152, 219, 0.3);
+    }
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+        transform: rotate(45deg);
+        transition: all 0.5s ease;
+    }
+
+    .feature-card:hover::before {
+        top: -75%;
+        left: -75%;
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .feature-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    @keyframes glitch {
+        0% {
+            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                0.025em 0.04em 0 #fffc00;
+        }
+        15% {
+            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                0.025em 0.04em 0 #fffc00;
+        }
+        16% {
+            text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                -0.05em -0.05em 0 #fffc00;
+        }
+        49% {
+            text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                -0.05em -0.05em 0 #fffc00;
+        }
+        50% {
+            text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                0 -0.04em 0 #fffc00;
+        }
+        99% {
+            text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                0 -0.04em 0 #fffc00;
+        }
+        100% {
+            text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+                -0.04em -0.025em 0 #fffc00;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+<body>
+    <div id="particles-js"></div>
+    <span class="zeex">
+        <h1 class="glitch" data-text="ZEEX FEATURES">ZEEX FEATURES</h1>
+    </span>
+    <div class="container">
+        <h2>Cutting-Edge AI Security Solutions</h2>
+        <p>Discover how Zeex is revolutionizing security and surveillance with our advanced AI-powered features:</p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Real-time Detection</h3>
+                <p>Our AI algorithms instantly identify and classify potential threats, illegal activities, and emergencies as they occur.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚨</div>
+                <h3 class="feature-title">Instant Alerts</h3>
+                <p>Automated notifications are sent immediately to relevant authorities, emergency services, and designated contacts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">Proactive Prevention</h3>
+                <p>Predictive analysis helps prevent incidents before they occur, enhancing overall safety and security.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Advanced Analytics</h3>
+                <p>Gain valuable insights from comprehensive data analysis to optimize security measures and resource allocation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Privacy Protection</h3>
+                <p>State-of-the-art encryption and anonymization techniques ensure data privacy and compliance with regulations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3 class="feature-title">Seamless Integration</h3>
+                <p>Easily integrate our AI-powered platform with existing CCTV systems and security infrastructure.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#3498db" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#3498db", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+{% endblock %}
