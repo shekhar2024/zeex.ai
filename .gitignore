@@ -14,4 +14,4 @@ uv.lock
 .env
 
 #database
-instance
+instance/db.sqlite3
