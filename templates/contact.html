@@ -46,10 +46,13 @@
     }
 
     @keyframes glow {
-        from { text-shadow: 0 0 10px rgba(52, 152, 219, 0.7); }
-        to { text-shadow: 0 0 20px rgba(52, 152, 219, 1), 0 0 30px rgba(52, 152, 219, 1); }
+        from {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--secondary-color), 0 0 20px var(--secondary-color);
+        }
+        to {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color);
+        }
     }
-
     .contact-info {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

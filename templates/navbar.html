@@ -76,168 +76,89 @@
             width: 100%;
         }
         
-        .hero {
+        
+        /* make navbar responsive : it will go in a 3 lines button when we click navbar appear on side */
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            width: 250px;
+            z-index: 1000;
+            background-color: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
         }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        /* make space between each item in sidebar */
+
+        .sidebar ul li {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            opacity: 0.1;
-            z-index: -1;
         }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
+
+        .sidebar ul li a {
+            width: 100%; 
         }
-        
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--secondary-color), 0 0 20px var(--secondary-color);
+
+        .menu-button {
+            display: none;
+        }   
+
+        @media (max-width: 768px) {
+            .hideOnMobile {
+                display: none;
             }
-            to {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color);
+            .menu-button {
+                display: block;
             }
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--secondary-color);
-            color: var(--bg-color);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.5s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,229,255,0.3);
-        }
-        
-        section {
-            padding: 100px 0;
-        }
-        
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 50px;
-            text-align: center;
-            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
         }
 
         
         
-        .feature {
-            background-color: rgba(255,255,255,0.05);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--secondary-color) 10%, transparent 10%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .feature:hover::before {
-            opacity: 0.1;
-        }
-        
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        
-        .feature h3 {
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
 </style>
 <body>
     <header>
         <div class="container">
             <nav>
                 <ul>
+                    <li class="hideOnMobile" class="nav-item"><a class="nav-link" href="{{url_for('index')}}">Home</a></li>
+                    <li class="hideOnMobile" class="nav-item"><a class="nav-link" href="{{url_for('features')}}">Features</a></li>
+                    <li class="hideOnMobile" class="nav-item"><a class="nav-link" href="{{url_for('about')}}">About</a></li>
+                    <li class="hideOnMobile" class="nav-item"><a class="nav-link" href="{{url_for('contact')}}">Contact</a></li>
+                    <li class="hideOnMobile" class="nav-item"><a href="{{url_for('blog')}}" class="nav-link">Blogs</a></li>
+                    <li class="menu-button" onclick=showSidebar()><a href="#" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </ul>
+                <ul class="sidebar">
+                    <br>
+                    <li onclick=hideSidebar() class="nav-item"><a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                    <br>
                     <li class="nav-item"><a class="nav-link" href="{{url_for('index')}}">Home</a></li>
+                    <br>
                     <li class="nav-item"><a class="nav-link" href="{{url_for('features')}}">Features</a></li>
+                    <br>
                     <li class="nav-item"><a class="nav-link" href="{{url_for('about')}}">About</a></li>
+                    <br>
                     <li class="nav-item"><a class="nav-link" href="{{url_for('contact')}}">Contact</a></li>
+                    <br>
                     <li class="nav-item"><a href="{{url_for('blog')}}" class="nav-link">Blogs</a></li>
                 </ul>
             </nav>
-        </div>
+        </div> 
     </header>
+    <script>
+        function showSidebar() {
+            /* making sidebar visible */
+            const sidebar = document.querySelector('.sidebar').style.display = 'flex';
+        }
+        function hideSidebar() {
+            /* making sidebar invisible */
+            const sidebar = document.querySelector('.sidebar').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

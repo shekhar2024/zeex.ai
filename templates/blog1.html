@@ -40,6 +40,19 @@
         margin-bottom: 1rem;
     }
 
+    .glow-text {
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--secondary-color), 0 0 20px var(--secondary-color);
+        }
+        to {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color);
+        }
+    }
+
     .blog-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -107,7 +120,7 @@
 {% block content %}
 <div id="particles-js"></div>
 <span class="up">
-    <h1>Zeex Blog</h1>
+    <h1 class="glow-text">Zeex Blog</h1>
     <p>Insights into AI-Powered Security Solutions</p>
 </span>
 
