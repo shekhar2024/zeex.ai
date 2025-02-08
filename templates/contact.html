@@ -43,16 +43,10 @@
         color: #3498db;
         text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
         animation: glow 2s ease-in-out infinite alternate;
+        margin-bottom: 20px;
     }
 
-    @keyframes glow {
-        from {
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--secondary-color), 0 0 20px var(--secondary-color);
-        }
-        to {
-            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color);
-        }
-    }
+    
     .contact-info {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -98,18 +92,36 @@
     }
 
     button {
-        background: #3498db;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: var(--secondary-color);
+        color: var(--bg-color);
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
         transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
     }
-
+    
+    button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: all 0.5s;
+    }
+    
+    button:hover::before {
+        left: 100%;
+    }
+    
     button:hover {
-        background: #2980b9;
-        box-shadow: 0 0 15px rgba(52, 152, 219, 0.7);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,229,255,0.3);
     }
     .contact-info {
         display: flex;
@@ -216,6 +228,7 @@
                 <p>Zeex AI Solutions</p>
             </div>
         </div>
+        <br>
         </div>
         
     <!-- </div> -->
